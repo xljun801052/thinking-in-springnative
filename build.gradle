@@ -32,7 +32,9 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+//enable native image support
 tasks.named('bootBuildImage') {
 	builder = 'paketobuildpacks/builder:tiny'
 	environment = ['BP_NATIVE_IMAGE': 'true']
+//	buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.19.0"] // to freeze native image version
 }

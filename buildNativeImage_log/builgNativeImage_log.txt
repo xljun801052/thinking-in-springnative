@@ -1,0 +1,336 @@
+5:59:50 PM: Executing 'bootBuildImage'...
+
+
+> Configure project :
+[native-image-plugin] Instrumenting task with the native-image-agent: aotTest
+[native-image-plugin] Instrumenting task with the native-image-agent: generateAot
+[native-image-plugin] Instrumenting task with the native-image-agent: generateTestAot
+[native-image-plugin] Instrumenting task with the native-image-agent: test
+
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :generateAot
+Execution optimizations have been disabled for task ':generateAot' to ensure correctness due to the following reasons:
+  - Additional action of task ':generateAot' was implemented by the Java lambda 'org.springframework.aot.gradle.SpringAotGradlePlugin$$Lambda$967/0x00000008009b7c40'. Reason: Using Java lambdas is not supported as task inputs. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implementation_unknown for more details about this problem.
+2022-11-24 17:59:54.596  INFO 7300 --- [           main] o.s.a.build.ContextBootstrapContributor  : Detected application class: org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication
+2022-11-24 17:59:54.601  INFO 7300 --- [           main] o.s.a.build.ContextBootstrapContributor  : Processing application context
+2022-11-24 17:59:57.671  INFO 7300 --- [           main] o.s.a.build.ContextBootstrapContributor  : Processed 111 bean definitions in 3066ms
+2022-11-24 17:59:58.041  INFO 7300 --- [           main] o.s.nativex.support.SpringAnalyzer       : Spring Native operating mode: native
+
+> Task :compileAotMainJava
+
+> Task :processAotMainResources
+> Task :aotMainClasses
+警告: 未知的枚举常量 When.MAYBE
+  原因: 找不到javax.annotation.meta.When的类文件
+注: /Users/xialiyisheng/Desktop/XLYS/thinking-in-springnative/build/generated/runtimeSources/aotMain/org/springframework/boot/jdbc/_FactoryProvider.java使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+注: /Users/xialiyisheng/Desktop/XLYS/thinking-in-springnative/build/generated/runtimeSources/aotMain/org/springframework/aot/StaticSpringFactories.java使用了未经检查或不安全的操作。
+注: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+1 个警告
+> Task :aotMainJar
+> Task :bootJarMainClassName UP-TO-DATE
+> Task :bootJar
+
+> Task :bootBuildImage
+Building image 'docker.io/library/thinking-in-springnative:0.0.1-SNAPSHOT'
+
+ > Pulling builder image 'docker.io/paketobuildpacks/builder:tiny' ..................................................
+ > Pulled builder image 'paketobuildpacks/builder@sha256:850b2b3dd3eab7bacfe33839712c67c3cb50431aff4ff36c435b3d97ea927268'
+ > Pulling run image 'docker.io/paketobuildpacks/run:tiny-cnb' ..................................................
+ > Pulled run image 'paketobuildpacks/run@sha256:c6b81e85b32036dab113dc33454eaa29c006c252bb48a87bf623a635c1763ce6'
+ > Executing lifecycle version v0.15.1
+ > Using build cache volume 'pack-cache-5f9b27951dee.build'
+
+ > Running creator
+    [creator]     ===> ANALYZING
+    [creator]     Previous image with name "docker.io/library/thinking-in-springnative:0.0.1-SNAPSHOT" not found
+    [creator]     ===> DETECTING
+    [creator]     6 of 14 buildpacks participating
+    [creator]     paketo-buildpacks/ca-certificates   3.5.0
+    [creator]     paketo-buildpacks/bellsoft-liberica 9.10.0
+    [creator]     paketo-buildpacks/syft              1.22.1
+    [creator]     paketo-buildpacks/executable-jar    6.5.0
+    [creator]     paketo-buildpacks/spring-boot       5.20.0
+    [creator]     paketo-buildpacks/native-image      5.6.0
+    [creator]     ===> RESTORING
+    [creator]     ===> BUILDING
+    [creator]
+    [creator]     Paketo Buildpack for CA Certificates 3.5.0
+    [creator]       https://github.com/paketo-buildpacks/ca-certificates
+    [creator]       Launch Helper: Contributing to layer
+    [creator]         Creating /layers/paketo-buildpacks_ca-certificates/helper/exec.d/ca-certificates-helper
+    [creator]
+    [creator]     Paketo Buildpack for BellSoft Liberica 9.10.0
+    [creator]       https://github.com/paketo-buildpacks/bellsoft-liberica
+    [creator]       Build Configuration:
+    [creator]         $BP_JVM_JLINK_ARGS           --no-man-pages --no-header-files --strip-debug --compress=1  configure custom link arguments (--output must be omitted)
+    [creator]         $BP_JVM_JLINK_ENABLED        false                                                        enables running jlink tool to generate custom JRE
+    [creator]         $BP_JVM_TYPE                 JRE                                                          the JVM type - JDK or JRE
+    [creator]         $BP_JVM_VERSION              11.*                                                         the Java version
+    [creator]       Launch Configuration:
+    [creator]         $BPL_DEBUG_ENABLED           false                                                        enables Java remote debugging support
+    [creator]         $BPL_DEBUG_PORT              8000                                                         configure the remote debugging port
+    [creator]         $BPL_DEBUG_SUSPEND           false                                                        configure whether to suspend execution until a debugger has attached
+    [creator]         $BPL_HEAP_DUMP_PATH                                                                       write heap dumps on error to this path
+    [creator]         $BPL_JAVA_NMT_ENABLED        true                                                         enables Java Native Memory Tracking (NMT)
+    [creator]         $BPL_JAVA_NMT_LEVEL          summary                                                      configure level of NMT, summary or detail
+    [creator]         $BPL_JFR_ARGS                                                                             configure custom Java Flight Recording (JFR) arguments
+    [creator]         $BPL_JFR_ENABLED             false                                                        enables Java Flight Recording (JFR)
+    [creator]         $BPL_JMX_ENABLED             false                                                        enables Java Management Extensions (JMX)
+    [creator]         $BPL_JMX_PORT                5000                                                         configure the JMX port
+    [creator]         $BPL_JVM_HEAD_ROOM           0                                                            the headroom in memory calculation
+    [creator]         $BPL_JVM_LOADED_CLASS_COUNT  35% of classes                                               the number of loaded classes in memory calculation
+    [creator]         $BPL_JVM_THREAD_COUNT        250                                                          the number of threads in memory calculation
+    [creator]         $JAVA_TOOL_OPTIONS                                                                        the JVM launch flags
+    [creator]         Using Java version 11.* from BP_JVM_VERSION
+    [creator]       BellSoft Liberica NIK 11.0.17: Contributing to layer
+    [creator]         Downloading from https://download.bell-sw.com/vm/22.3.0/bellsoft-liberica-vm-core-openjdk11.0.17+7-22.3.0+2-linux-amd64.tar.gz
+    [creator]         Verifying checksum
+    [creator]         Expanding to /layers/paketo-buildpacks_bellsoft-liberica/native-image-svm
+    [creator]         Adding 127 container CA certificates to JVM truststore
+    [creator]         Writing env.build/JAVA_HOME.override
+    [creator]         Writing env.build/JDK_HOME.override
+    [creator]
+    [creator]     Paketo Buildpack for Syft 1.22.1
+    [creator]       https://github.com/paketo-buildpacks/syft
+    [creator]         Downloading from https://github.com/anchore/syft/releases/download/v0.60.3/syft_0.60.3_linux_amd64.tar.gz
+    [creator]         Verifying checksum
+    [creator]         Writing env.build/SYFT_CHECK_FOR_APP_UPDATE.default
+    [creator]
+    [creator]     Paketo Buildpack for Executable JAR 6.5.0
+    [creator]       https://github.com/paketo-buildpacks/executable-jar
+    [creator]       Class Path: Contributing to layer
+    [creator]         Writing env.build/CLASSPATH.delim
+    [creator]         Writing env.build/CLASSPATH.prepend
+    [creator]
+    [creator]     Paketo Buildpack for Spring Boot 5.20.0
+    [creator]       https://github.com/paketo-buildpacks/spring-boot
+    [creator]       Build Configuration:
+    [creator]         $BP_SPRING_CLOUD_BINDINGS_DISABLED   false  whether to contribute Spring Boot cloud bindings support
+    [creator]       Launch Configuration:
+    [creator]         $BPL_SPRING_CLOUD_BINDINGS_DISABLED  false  whether to auto-configure Spring Boot environment properties from bindings
+    [creator]         $BPL_SPRING_CLOUD_BINDINGS_ENABLED   true   Deprecated - whether to auto-configure Spring Boot environment properties from bindings
+    [creator]       Class Path: Contributing to layer
+    [creator]         Writing env.build/CLASSPATH.append
+    [creator]         Writing env.build/CLASSPATH.delim
+    [creator]       Image labels:
+    [creator]         org.springframework.boot.version
+    [creator]     Warning: BOM table is deprecated in this buildpack api version, though it remains supported for backwards compatibility. Buildpack authors should write BOM information to <layer>.sbom.<ext>, launch.sbom.<ext>, or build.sbom.<ext>.
+    [creator]
+    [creator]     Paketo Buildpack for Native Image 5.6.0
+    [creator]       https://github.com/paketo-buildpacks/native-image
+    [creator]       Build Configuration:
+    [creator]         $BP_BINARY_COMPRESSION_METHOD                Compression mechanism used to reduce binary size. Options: `none` (default), `upx` or `gzexe`
+    [creator]         $BP_NATIVE_IMAGE                       true  enable native image build
+    [creator]         $BP_NATIVE_IMAGE_BUILD_ARGUMENTS             arguments to pass to the native-image command
+    [creator]         $BP_NATIVE_IMAGE_BUILD_ARGUMENTS_FILE        a file with arguments to pass to the native-image command
+    [creator]         $BP_NATIVE_IMAGE_BUILT_ARTIFACT              the built application artifact explicitly, required if building from a JAR
+    [creator]       Native Image: Contributing to layer
+    [creator]         Executing native-image -H:+StaticExecutableWithDynamicLibC -H:Name=/layers/paketo-buildpacks_native-image/native-image/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication -cp /workspace:/workspace/BOOT-INF/classes:/workspace/BOOT-INF/lib/thinking-in-springnative-0.0.1-SNAPSHOT-aot.jar:/workspace/BOOT-INF/lib/spring-native-0.12.1.jar:/workspace/BOOT-INF/lib/spring-webflux-5.3.23.jar:/workspace/BOOT-INF/lib/spring-web-5.3.23.jar:/workspace/BOOT-INF/lib/spring-boot-autoconfigure-2.7.5.jar:/workspace/BOOT-INF/lib/spring-boot-2.7.5.jar:/workspace/BOOT-INF/lib/jakarta.annotation-api-1.3.5.jar:/workspace/BOOT-INF/lib/spring-context-5.3.23.jar:/workspace/BOOT-INF/lib/spring-aop-5.3.23.jar:/workspace/BOOT-INF/lib/spring-beans-5.3.23.jar:/workspace/BOOT-INF/lib/spring-expression-5.3.23.jar:/workspace/BOOT-INF/lib/spring-core-5.3.23.jar:/workspace/BOOT-INF/lib/snakeyaml-1.30.jar:/workspace/BOOT-INF/lib/jackson-datatype-jsr310-2.13.4.jar:/workspace/BOOT-INF/lib/jackson-module-parameter-names-2.13.4.jar:/workspace/BOOT-INF/lib/jackson-annotations-2.13.4.jar:/workspace/BOOT-INF/lib/jackson-core-2.13.4.jar:/workspace/BOOT-INF/lib/jackson-datatype-jdk8-2.13.4.jar:/workspace/BOOT-INF/lib/jackson-databind-2.13.4.2.jar:/workspace/BOOT-INF/lib/reactor-netty-http-1.0.24.jar:/workspace/BOOT-INF/lib/reactor-netty-core-1.0.24.jar:/workspace/BOOT-INF/lib/reactor-core-3.4.24.jar:/workspace/BOOT-INF/lib/logback-classic-1.2.11.jar:/workspace/BOOT-INF/lib/log4j-to-slf4j-2.17.2.jar:/workspace/BOOT-INF/lib/jul-to-slf4j-1.7.36.jar:/workspace/BOOT-INF/lib/spring-jcl-5.3.23.jar:/workspace/BOOT-INF/lib/netty-codec-http2-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-handler-proxy-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-codec-http-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-resolver-dns-native-macos-4.1.84.Final-osx-x86_64.jar:/workspace/BOOT-INF/lib/netty-resolver-dns-classes-macos-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-resolver-dns-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-transport-native-epoll-4.1.84.Final-linux-x86_64.jar:/workspace/BOOT-INF/lib/reactive-streams-1.0.4.jar:/workspace/BOOT-INF/lib/logback-core-1.2.11.jar:/workspace/BOOT-INF/lib/slf4j-api-1.7.36.jar:/workspace/BOOT-INF/lib/log4j-api-2.17.2.jar:/workspace/BOOT-INF/lib/netty-handler-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-codec-dns-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-codec-socks-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-codec-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-transport-classes-epoll-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-transport-native-unix-common-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-transport-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-buffer-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-resolver-4.1.84.Final.jar:/workspace/BOOT-INF/lib/netty-common-4.1.84.Final.jar org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication
+    [creator]     Warning: Using a deprecated option --allow-incomplete-classpath from 'META-INF/native-image/org.springframework.aot/spring-aot/native-image.properties' in 'file:///workspace/BOOT-INF/lib/thinking-in-springnative-0.0.1-SNAPSHOT-aot.jar'. Allowing an incomplete classpath is now the default. Use --link-at-build-time to report linking errors at image build time for a class or package.
+    [creator]     ================================================================================
+    [creator]     GraalVM Native Image: Generating '/layers/paketo-buildpacks_native-image/native-image/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication' (static executable)...
+    [creator]     ================================================================================
+    [creator]     Warning: Could not register org.springframework.boot.autoconfigure.jdbc.HikariDriverConfigurationFailureAnalyzer: allDeclaredConstructors for reflection. Reason: java.lang.NoClassDefFoundError: org/springframework/jdbc/CannotGetJdbcConnectionException.
+    [creator]     Warning: Could not register org.springframework.boot.autoconfigure.web.reactive.function.client.ClientHttpConnectorConfiguration$JettyClient: allDeclaredMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/eclipse/jetty/util/ssl/SslContextFactory.
+    [creator]     Warning: Could not register org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer: allDeclaredConstructors for reflection. Reason: java.lang.NoClassDefFoundError: javax/validation/ValidationException.
+    [creator]     Warning: Could not register org.springframework.boot.liquibase.LiquibaseChangelogMissingFailureAnalyzer: allDeclaredConstructors for reflection. Reason: java.lang.NoClassDefFoundError: liquibase/exception/ChangeLogParseException.
+    [creator]     Warning: Could not register io.netty.handler.codec.compression.Lz4FrameDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: net/jpountz/lz4/LZ4Exception.
+    [creator]     Warning: Could not register io.netty.handler.codec.compression.Lz4FrameEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: net/jpountz/lz4/LZ4Exception.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.CompatibleMarshallingDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteInput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.CompatibleMarshallingEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteOutput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.MarshallingDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteInput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.MarshallingEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteOutput.
+    [creator]     Warning: Could not register io.netty.handler.codec.protobuf.ProtobufDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: com/google/protobuf/ExtensionRegistryLite.
+    [creator]     Warning: Could not register io.netty.handler.codec.compression.Lz4FrameDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: net/jpountz/lz4/LZ4Exception.
+    [creator]     Warning: Could not register io.netty.handler.codec.compression.Lz4FrameEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: net/jpountz/lz4/LZ4Exception.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.CompatibleMarshallingDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteInput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.CompatibleMarshallingEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteOutput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.MarshallingDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteInput.
+    [creator]     Warning: Could not register io.netty.handler.codec.marshalling.MarshallingEncoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: org/jboss/marshalling/ByteOutput.
+    [creator]     Warning: Could not register io.netty.handler.codec.protobuf.ProtobufDecoder: queryAllPublicMethods for reflection. Reason: java.lang.NoClassDefFoundError: com/google/protobuf/ExtensionRegistryLite.
+    [creator]     [1/7] Initializing...                                           (15.3s @ 0.16GB)
+    [creator]      Version info: 'GraalVM 22.3.0 Java 11 CE'
+    [creator]      Java version info: '11.0.17+7-LTS'
+    [creator]      C compiler: gcc (linux, x86_64, 7.5.0)
+    [creator]      Garbage collector: Serial GC
+    [creator]     10:04:15.758 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+    [creator]     10:04:15.764 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+    [creator]     10:04:15.764 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 11
+    [creator]     10:04:15.765 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+    [creator]     10:04:15.765 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+    [creator]     10:04:15.765 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+    [creator]     10:04:15.765 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+    [creator]     10:04:15.766 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: available
+    [creator]     10:04:15.766 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+    [creator]     10:04:15.768 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): available
+    [creator]     10:04:15.768 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): available
+    [creator]     10:04:15.768 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+    [creator]     10:04:15.771 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - maxDirectMemory: 2934439936 bytes (maybe)
+    [creator]     10:04:15.772 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+    [creator]     10:04:15.772 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+    [creator]     10:04:15.783 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: 2934439936 bytes
+    [creator]     10:04:15.783 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: 1024
+    [creator]     10:04:15.783 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+    [creator]     10:04:15.783 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+    [creator]     10:04:21.058 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+    [creator]     10:04:21.060 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+    [creator]     10:04:21.317 [ForkJoinPool-2-worker-1] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+    [creator]     10:04:21.317 [ForkJoinPool-2-worker-1] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+    [creator]     10:04:22.251 [ForkJoinPool-2-worker-3] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+    [creator]     10:04:22.251 [ForkJoinPool-2-worker-3] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+    [creator]     10:04:22.259 [ForkJoinPool-2-worker-3] DEBUG io.netty.util.NetUtilInitializations - Loopback interface: lo (lo, 127.0.0.1)
+    [creator]     10:04:22.264 [ForkJoinPool-2-worker-3] DEBUG io.netty.util.NetUtil - /proc/sys/net/core/somaxconn: 4096
+    [creator]     10:04:24.009 [ForkJoinPool-2-worker-7] DEBUG io.netty.resolver.DefaultHostsFileEntriesResolver - -Dio.netty.hostsFileRefreshInterval: 0
+    [creator]     10:04:27.481 [ForkJoinPool-2-worker-7] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+    [creator]     10:04:27.674 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+    [creator]     10:04:27.674 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+    [creator]     10:04:28.530 [main] DEBUG io.netty.handler.ssl.OpenSsl - netty-tcnative not in the classpath; OpenSslEngine will be unavailable.
+    [creator]     10:04:28.618 [ForkJoinPool-2-worker-3] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+    [creator]     10:04:29.339 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.NativeLibraryLoader - -Dio.netty.native.workdir: /tmp (io.netty.tmpdir)
+    [creator]     10:04:29.347 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.NativeLibraryLoader - -Dio.netty.native.deleteLibAfterLoading: true
+    [creator]     10:04:29.348 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.NativeLibraryLoader - -Dio.netty.native.tryPatchShadedId: true
+    [creator]     10:04:29.348 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.internal.NativeLibraryLoader - -Dio.netty.native.detectNativeLibraryDuplicates: true
+    [creator]     10:04:31.762 [ForkJoinPool-2-worker-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+    [creator]     10:04:31.762 [ForkJoinPool-2-worker-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+    [creator]     10:04:31.763 [ForkJoinPool-2-worker-1] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1b06e2cd
+    [creator]     10:04:32.326 [ForkJoinPool-2-worker-3] DEBUG io.netty.handler.ssl.JdkSslContext - Default protocols (JDK): [TLSv1.3, TLSv1.2]
+    [creator]     10:04:32.326 [ForkJoinPool-2-worker-3] DEBUG io.netty.handler.ssl.JdkSslContext - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+    [creator]     10:04:34.772 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+    [creator]     10:04:34.773 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+    [creator]     10:04:34.775 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+    [creator]     10:04:34.776 [ForkJoinPool-2-worker-5] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+    [creator]     10:04:38.686 [ForkJoinPool-2-worker-3] DEBUG io.netty.buffer.AdvancedLeakAwareByteBuf - -Dio.netty.leakDetection.acquireAndReleaseOnly: false
+    [creator]     10:04:45.318 [ForkJoinPool-2-worker-5] ERROR io.netty.handler.ssl.BouncyCastleAlpnSslUtils - Unable to initialize BouncyCastleAlpnSslUtils.
+    [creator]     java.lang.ClassNotFoundException: org.bouncycastle.jsse.BCSSLEngine
+    [creator]     	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:476)
+    [creator]     	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+    [creator]     	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+    [creator]     	at java.base/java.lang.Class.forName0(Native Method)
+    [creator]     	at java.base/java.lang.Class.forName(Class.java:315)
+    [creator]     	at io.netty.handler.ssl.BouncyCastleAlpnSslUtils.<clinit>(BouncyCastleAlpnSslUtils.java:63)
+    [creator]     	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method)
+    [creator]     	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1042)
+    [creator]     	at com.oracle.svm.hosted.classinitialization.ClassInitializationSupport.ensureClassInitialized(ClassInitializationSupport.java:172)
+    [creator]     	at com.oracle.svm.hosted.classinitialization.ProvenSafeClassInitializationSupport.computeInitKindAndMaybeInitializeClass(ProvenSafeClassInitializationSupport.java:344)
+    [creator]     	at com.oracle.svm.hosted.classinitialization.ProvenSafeClassInitializationSupport.computeInitKindAndMaybeInitializeClass(ProvenSafeClassInitializationSupport.java:75)
+    [creator]     	at com.oracle.svm.hosted.classinitialization.ClassInitializationSupport.shouldInitializeAtRuntime(ClassInitializationSupport.java:148)
+    [creator]     	at com.oracle.svm.hosted.SVMHost.isInitialized(SVMHost.java:297)
+    [creator]     	at com.oracle.graal.pointsto.meta.AnalysisType.isInitialized(AnalysisType.java:882)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.maybeEagerlyInitialize(BytecodeParser.java:4304)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.genInvokeStatic(BytecodeParser.java:1658)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.genInvokeStatic(BytecodeParser.java:1651)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.processBytecode(BytecodeParser.java:5288)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.iterateBytecodesForBlock(BytecodeParser.java:3385)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.handleBytecodeBlock(BytecodeParser.java:3345)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.processBlock(BytecodeParser.java:3190)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.build(BytecodeParser.java:1138)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.BytecodeParser.buildRootMethod(BytecodeParser.java:1030)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.java.GraphBuilderPhase$Instance.run(GraphBuilderPhase.java:97)
+    [creator]     	at com.oracle.svm.hosted.phases.SharedGraphBuilderPhase.run(SharedGraphBuilderPhase.java:84)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.Phase.run(Phase.java:49)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.BasePhase.apply(BasePhase.java:446)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.Phase.apply(Phase.java:42)
+    [creator]     	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.Phase.apply(Phase.java:38)
+    [creator]     	at com.oracle.graal.pointsto.flow.AnalysisParsedGraph.parseBytecode(AnalysisParsedGraph.java:135)
+    [creator]     	at com.oracle.graal.pointsto.meta.AnalysisMethod.ensureGraphParsed(AnalysisMethod.java:685)
+    [creator]     	at com.oracle.graal.pointsto.flow.MethodTypeFlowBuilder.parse(MethodTypeFlowBuilder.java:171)
+    [creator]     	at com.oracle.graal.pointsto.flow.MethodTypeFlowBuilder.apply(MethodTypeFlowBuilder.java:349)
+    [creator]     	at com.oracle.graal.pointsto.flow.MethodTypeFlow.createFlowsGraph(MethodTypeFlow.java:93)
+    [creator]     	at com.oracle.graal.pointsto.flow.MethodTypeFlow.ensureFlowsGraphCreated(MethodTypeFlow.java:83)
+    [creator]     	at com.oracle.graal.pointsto.flow.MethodTypeFlow.getOrCreateMethodFlowsGraph(MethodTypeFlow.java:65)
+    [creator]     	at com.oracle.graal.pointsto.typestate.DefaultVirtualInvokeTypeFlow.onObservedUpdate(DefaultVirtualInvokeTypeFlow.java:109)
+    [creator]     	at com.oracle.graal.pointsto.flow.TypeFlow.lambda$addObserver$0(TypeFlow.java:455)
+    [creator]     	at com.oracle.graal.pointsto.util.CompletionExecutor.executeCommand(CompletionExecutor.java:193)
+    [creator]     	at com.oracle.graal.pointsto.util.CompletionExecutor.lambda$executeService$0(CompletionExecutor.java:177)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1426)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+    [creator]     	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+    [creator]     10:05:02.823 [ForkJoinPool-2-worker-7] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibDecoder: false
+    [creator]     10:05:02.834 [ForkJoinPool-2-worker-7] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibEncoder: false
+    [creator]     10:05:02.888 [ForkJoinPool-2-worker-7] DEBUG io.netty.handler.codec.compression.JdkZlibEncoder - -Dio.netty.jdkzlib.encoder.maxInitialOutputBufferSize=65536
+    [creator]     10:05:02.889 [ForkJoinPool-2-worker-7] DEBUG io.netty.handler.codec.compression.JdkZlibEncoder - -Dio.netty.jdkzlib.encoder.maxInputBufferSize=65536
+    [creator]     Warning: Could not register complete reflection metadata for org.springframework.validation.beanvalidation.SpringValidatorAdapter$ViolationFieldError. Reason(s): java.lang.NoClassDefFoundError: javax/validation/Validator
+    [creator]     [2/7] Performing analysis...  [********]                       (132.8s @ 1.14GB)
+    [creator]       14,925 (89.99%) of 16,585 classes reachable
+    [creator]       22,862 (65.57%) of 34,865 fields reachable
+    [creator]       73,708 (62.33%) of 118,258 methods reachable
+    [creator]          818 classes,   193 fields, and 3,128 methods registered for reflection
+    [creator]           69 classes,    88 fields, and    56 methods registered for JNI access
+    [creator]            5 native libraries: dl, pthread, rt, stdc++, z
+    [creator]     [3/7] Building universe...                                      (15.7s @ 1.32GB)
+    [creator]     [4/7] Parsing methods...      [****]                            (18.3s @ 0.81GB)
+    [creator]     [5/7] Inlining methods...     [***]                              (4.3s @ 0.76GB)
+    [creator]     [6/7] Compiling methods...    [*********]                       (79.5s @ 1.46GB)
+    [creator]     [7/7] Creating image...                                         (18.0s @ 1.93GB)
+    [creator]       27.03MB (47.60%) for code area:    47,108 compilation units
+    [creator]       26.46MB (46.58%) for image heap:  327,521 objects and 35 resources
+    [creator]        3.31MB ( 5.82%) for other data
+    [creator]       56.80MB in total
+    [creator]     --------------------------------------------------------------------------------
+    [creator]     Top 10 packages in code area:           Top 10 object types in image heap:
+    [creator]        1.56MB sun.security.ssl                 6.02MB byte[] for code metadata
+    [creator]        1.34MB reactor.core.publisher           3.68MB java.lang.Class
+    [creator]     1021.60KB java.util                        3.07MB java.lang.String
+    [creator]      674.23KB com.sun.crypto.provider          2.79MB byte[] for general heap data
+    [creator]      469.84KB sun.security.x509                2.63MB byte[] for java.lang.String
+    [creator]      427.33KB io.netty.handler.codec.http2     1.37MB c.o.s.c.h.DynamicHubCompanion
+    [creator]      424.72KB java.lang                      781.02KB byte[] for reflection metadata
+    [creator]      420.63KB java.util.concurrent           616.80KB java.lang.String[]
+    [creator]      407.19KB io.netty.buffer                530.43KB c.o.s.c.h.DynamicHu~onMetadata
+    [creator]      385.33KB c.f.j.databind.deser.std       521.67KB java.util.HashMap$Node
+    [creator]       19.66MB for 552 more packages            4.39MB for 2423 more object types
+    [creator]     --------------------------------------------------------------------------------
+    [creator]        50.2s (17.0% of total time) in 112 GCs | Peak RSS: 2.74GB | CPU load: 3.12
+    [creator]     --------------------------------------------------------------------------------
+    [creator]     Produced artifacts:
+    [creator]      /layers/paketo-buildpacks_native-image/native-image/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication (executable)
+    [creator]      /layers/paketo-buildpacks_native-image/native-image/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication.build_artifacts.txt (txt)
+    [creator]     ================================================================================
+    [creator]     Finished generating '/layers/paketo-buildpacks_native-image/native-image/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication' in 4m 55s.
+    [creator]       Removing bytecode
+    [creator]       Process types:
+    [creator]         native-image: /workspace/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication (direct)
+    [creator]         task:         /workspace/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication (direct)
+    [creator]         web:          /workspace/org.xlys.thinkinginspringnative.ThinkingInSpringnativeApplication (direct)
+    [creator]     ===> EXPORTING
+    [creator]     Adding layer 'paketo-buildpacks/ca-certificates:helper'
+    [creator]     Adding layer 'launch.sbom'
+    [creator]     Adding 1/1 app layer(s)
+    [creator]     Adding layer 'launcher'
+    [creator]     Adding layer 'config'
+    [creator]     Adding layer 'process-types'
+    [creator]     Adding label 'io.buildpacks.lifecycle.metadata'
+    [creator]     Adding label 'io.buildpacks.build.metadata'
+    [creator]     Adding label 'io.buildpacks.project.metadata'
+    [creator]     Adding label 'org.springframework.boot.version'
+    [creator]     Setting default process type 'web'
+    [creator]     Saving docker.io/library/thinking-in-springnative:0.0.1-SNAPSHOT...
+    [creator]     *** Images (958a2c11b5a6):
+    [creator]           docker.io/library/thinking-in-springnative:0.0.1-SNAPSHOT
+    [creator]     Adding cache layer 'paketo-buildpacks/bellsoft-liberica:native-image-svm'
+    [creator]     Adding cache layer 'paketo-buildpacks/syft:syft'
+    [creator]     Adding cache layer 'paketo-buildpacks/native-image:native-image'
+    [creator]     Adding cache layer 'cache.sbom'
+
+Successfully built image 'docker.io/library/thinking-in-springnative:0.0.1-SNAPSHOT'
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.5.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+Execution optimizations have been disabled for 1 invalid unit(s) of work during this build to ensure correctness.
+Please consult deprecation warnings for more details.
+
+BUILD SUCCESSFUL in 9m 2s
+9 actionable tasks: 7 executed, 2 up-to-date
+6:08:54 PM: Execution finished 'bootBuildImage'.
